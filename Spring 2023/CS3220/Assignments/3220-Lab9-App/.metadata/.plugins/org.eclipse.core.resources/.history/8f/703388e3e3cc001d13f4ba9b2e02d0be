@@ -1,0 +1,104 @@
+package lab9.servlet;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import model.VaccineEntry;
+import utilities.ServletUtilities;
+
+
+
+/**
+ * Servlet implementation class ListVaccine
+ */
+@WebServlet(urlPatterns = "/ListVaccine", loadOnStartup = 1)
+public class ListVaccine extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	private List<VaccineEntry> entries = new ArrayList<VaccineEntry>();
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public ListVaccine() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+    
+    public void init( ServletConfig config ) throws ServletException
+    {
+        super.init( config );
+
+        
+        entries.add( new VaccineEntry( "Pfizer/BioNTech", "2", "21", "10000", "10000" ) );
+        entries.add( new VaccineEntry( "Johnson & Johnson", "1", "" ,"5000", "5000" ) );
+
+        getServletContext().setAttribute( "entries", entries );
+    }
+
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+//		response.setContentType("text/html");
+//
+//        StringBuilder html = new StringBuilder();
+//    	List<VaccineEntry> entries = ServletUtilities.getVaccineEntresFromServletContext(getServletContext());
+//
+//        PrintWriter out = response.getWriter();
+//        
+//        html.append("<a href='NewVaccine'>New Vaccine</a>" + " | " + "<a href='NewDose'>New Doses</a><br><br>");
+//        
+//        html.append("<table border='1' cellpadding= '5'>");
+//        html.append("<tr>"
+//                + "<th>Vaccine</th>"
+//                + "<th>Doses Required</th>"
+//                + "<th>Days Between Doses</th>"
+//                + "<th>Total Doses Received</th>"
+//                + "<th>Total Doses Left</th>"
+//                + "<th></th></tr>");
+//        
+//        for( VaccineEntry entry : entries )
+//        {
+//            html.append("<tr>");
+//            html.append( "<td>" + entry.getVaccine() + "</td>" );
+//            html.append( "<td>" + entry.getDoseRequired() + "</td>" );
+//            html.append( "<td>" + entry.getDaysBetweenDose() + "</td>" );
+//            html.append( "<td>" + entry.getTotalDoseReceived() + "</td>" );
+//            html.append( "<td>" + entry.getTotalDoseLeft() + "</td>" );
+//            
+//            html.append( "<td><a href='EditVaccine?id=" + entry.getId() + "'>Edit</a>"  );
+//            
+//            html.append( "</td>" );
+//            html.append( "</tr>" );
+//        }
+//        html.append( "</table>" );
+//        
+//        out.println( ServletUtilities.titleWithBody("ListVaccine", html.toString()) );
+		
+		
+		
+		request.setAttribute("entries", entries);
+        request.getRequestDispatcher("ListVaccine.jsp").forward(request, response);
+
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+
+}

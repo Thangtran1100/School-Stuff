@@ -1,0 +1,25 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Main Page</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+</head>
+<body>
+	<div class="container mt-5">
+		<div class="row justify-content-center">
+			<div class="col-md-6">
+				<h1 class="mb-4">Welcome to the Vaccine Management System</h1>
+				<a href="ListVaccine" class="btn btn-primary btn-lg btn-block mb-3">Vaccine
+					Management</a> <a href="ListPatient"
+					class="btn btn-secondary btn-lg btn-block">Patient Management</a>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

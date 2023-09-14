@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CS3220 HW1</title>
+</head>
+
+<body>
+    <h2>CS3220 Homework 1</h2>
+
+    <p>Please deploy your application on CS3, and package your project in a zip file and submit it to Canvas. The
+        open-source software tool <a href="https://www.7-zip.org/">7-Zip</a> can be used to create the zip file. Please
+        also create and submit an HTML file <em>hw1.html</em> which contains a hyperlink to your application
+        on the CS3 server.</p>
+    <hr />
+    <p>In this semester we will develop an online system to help a hypothetical local hospital for its
+        COVID vaccination effort. The system will keep track of both patient and vaccine information for
+        the hospital. In this assignment, we will focus on the vaccine part that manages vaccine information.</p>
+
+    <p>1. List Vaccines (30pt)</p>
+
+    <p>When the application is requested without any parameter, it displays the list of the vaccines and doses at
+        the hospital as shown below:</p>
+
+    <p style="margin-left: 40px;"><a href="#">New Vaccine</a> | <a href="#">New Doses</a></p>
+
+    <div style="margin-left: 40px;">
+        <table border="1" cellpadding="5" cellspacing="2">
+            <thead>
+                <tr>
+                    <th>Vaccine</th>
+                    <th>Doses Required</th>
+                    <th>Days Between Doses</th>
+                    <th>Total Doses Received</th>
+                    <th>Total Doses Left</th>
+                    <th>&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Pfizer/BioNTech</td>
+                    <td>2</td>
+                    <td>21</td>
+                    <td>10000</td>
+                    <td>10000</td>
+                    <td><a href="#">Edit</a></td>
+                </tr>
+                <tr>
+                    <td>Johnson &amp; Johnson</td>
+                    <td>1</td>
+                    <td></td>
+                    <td>5000</td>
+                    <td>5000</td>
+                    <td><a href="#">Edit</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <p>For each vaccine, the system displays the name of the vaccine, the number of doses required
+        to fully vaccinate a patient, the number of days between doses if
+        more than one dose is required, the total doses the hospital has received, and the total doses left (i.e. not
+        yet given to patients).</p>
+    <p>Most COVID vaccines require 2 doses to fully vaccinate a patient, and the
+        2 doses need to be separated by a period of time. For example: </p>
+    <ul>
+        <li>Pfizer/BioNTech: 21 days</li>
+        <li>Moderna: 28 days</li>
+        <li>AstraZeneca: 4-12 Weeks (to keep our system simple, we'll say it 28 days)</li>
+        <li>SinoVac: 28 days</li>
+        <li>Sputnik V: 31 days</li>
+    </ul>
+    <p>The most notable exception currently is Johnson &amp; Johnson, which only requires one dose.</p>
+
+    <p><em>Total Doses Left</em> will be calculated as <em>Total Doses Received - Doses Given to
+            Patients</em>. We will implement the patient part of the system in future assignments; in this
+        assignment you can keep Total Doses Left the same as Total Doses Received.</p>
+
+    <p>2. New Vaccine (30pt)</p>
+
+    <p>Suppose the hospital receives a new type of vaccine, a user can add it to the system by clicking on
+        <em>New Vaccine</em>, which will take the user to a page where a new vaccine can be added. For
+        example:
+    </p>
+
+    <div style="margin-left: 40px;">
+        <table border="1" cellpadding="5" cellspacing="2">
+            <tbody>
+                <tr>
+                    <th>Name</th>
+                    <td><input type="text" /></td>
+                </tr>
+                <tr>
+                    <th>Doses Required</th>
+                    <td><select>
+                            <option>2</option>
+                            <option>1</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Days Between Doses</th>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td colspan="2" scope="row"><button>Add</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <p>Note that after a new type of vaccine is added, the application should redirect the user to the vaccine listing
+        page. The Total Doses Received/Left of the new vaccine should be 0 as new doses will be added using the
+        <em>New Doses</em> function.
+    </p>
+
+    <p>3. New Doses (30pt) </p>
+
+    <p>Suppose the hospital receives a new shipment of vaccine doses, a user can add it to the system by clicking on
+        <em>New Doses</em>, which will take the user to a page where the new number of doses can be added. For
+        example:
+    </p>
+
+    <div style="margin-left: 40px;">
+        <table border="1" cellpadding="5" cellspacing="2">
+            <tbody>
+                <tr>
+                    <th>Vaccine</th>
+                    <td><select>
+                            <option>Pfizer/BioNTech</option>
+                            <option>Johnson & Johnson</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th>New Doses Received</th>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td colspan="2" scope="row"><button>Add</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <p>Note that the dropdown list must be dynamically generated based on the vaccines currently in the system.
+        In other words, if a new vaccine was added using the <em>New Vaccine</em> function, it should be listed in the
+        dropdown list.</p>
+    <p>After new doses are added, the application should redirect the user to the vaccine listing page, and
+        the Total Doses Received/Left of the vaccine should be updated with the new doses added.
+    </p>
+
+    <p>4. Edit Vaccine (30pt)</p>
+
+    <p>Clicking on the <em>Edit</em> link of a vaccine allows a user to edit the information about the
+        vaccine (but not the doses). For example:</p>
+
+    <div style="margin-left: 40px;">
+        <table border="1" cellpadding="5" cellspacing="2">
+            <tbody>
+                <tr>
+                    <th>Name</th>
+                    <td><input type="text" value="Johnson & Johnson" /></td>
+                </tr>
+                <tr>
+                    <th>Doses Required</th>
+                    <td><select>
+                            <option>2</option>
+                            <option selected>1</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Days Between Doses</th>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td colspan="2" scope="row"><button>Save</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <p>Note that the form should be pre-filled with the vaccine information to be edited. In particular, the required
+        doses should be selected in the dropdown list. After a vaccine is edited, the application
+        should redirect the user to the vaccine listing page.</p>
+
+    <h3>Notes</h3>
+    <ul>
+        <li>As I said in class, the vast majority of web applications can be considered as <em>data + operations on the
+            data</em>, so first identify the data in this application and create the corresponding classes (e.g. Vaccine),
+            then identify the operations in this application, e.g. display vaccines, add vaccine, add doses, and so on.</li>
+        <li>Create one servlet for each operation. If an operation involves form processing, use <code>doGet()</code>
+            to display the form and <code>doPost()</code> to process the form.</li>
+        <li>To focus on the main functionality, we will assume that the users will always provide proper input - in
+            other words, you do not need to implement any input validation.</li>
+        <li>Changes made by the users (e.g. new vaccines and doses) need to be stored in application scope but do not
+            need to be saved to a file. Those changes will be lost after the application is unloaded or reloaded, and
+            that's OK for this assignment.</li>
+        <li>Do not spend too much time beautifying the user interface - you can do that in later assignments when we use
+            JSP.</li>
+    </ul>
+
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+package model;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class PatientBook {
+    private ArrayList<PatientEntry> patient = new ArrayList<PatientEntry>();
+    
+    public PatientBook() {
+        patient = new ArrayList<>();
+    }
+    
+    public void addPatient(PatientEntry newPatient) {
+        patient.add(newPatient);
+    }
+    
+    public void removePatient(int patientId) {
+    	for (int i = 0; i < patient.size(); i++) {
+    		if (patient.get(i).getId() == patientId) {
+                patient.remove(i);
+                break;
+            }
+        }
+    }
+    
+    public PatientEntry getPatientById(int patientId) {
+        for (PatientEntry patient : patient) {
+            if (patient.getId() == patientId) {
+                return patient;
+            }
+        }
+        return null;
+    }
+    
+    public List<PatientEntry> getAllPatients() {
+        return patient;
+    }
+}

@@ -1,0 +1,985 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20231.23.0806.1229                               -->
+<workbook original-version='18.1' source-build='2023.1.5 (20231.23.0806.1229)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <_.fcp.AnimationOnByDefault.true...AnimationOnByDefault />
+    <_.fcp.MarkAnimation.true...MarkAnimation />
+    <_.fcp.ObjectModelEncapsulateLegacy.true...ObjectModelEncapsulateLegacy />
+    <_.fcp.ObjectModelTableType.true...ObjectModelTableType />
+    <_.fcp.SchemaViewerObjectModel.true...SchemaViewerObjectModel />
+    <SheetIdentifierTracking />
+    <WindowsPersistSimpleIdentifiers />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <_.fcp.AnimationOnByDefault.false...style>
+    <_.fcp.AnimationOnByDefault.false..._.fcp.MarkAnimation.true...style-rule element='animation'>
+      <_.fcp.AnimationOnByDefault.false...format attr='animation-on' value='ao-on' />
+    </_.fcp.AnimationOnByDefault.false..._.fcp.MarkAnimation.true...style-rule>
+  </_.fcp.AnimationOnByDefault.false...style>
+  <datasources>
+    <datasource caption='covid_third_dataset' inline='true' name='federated.1wmnmak1h064fm16w36l5014rzn5' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='covid_third_dataset' name='textscan.0q8wczv0qw6cz8171s3y019b2mmd'>
+            <connection class='textscan' directory='C:/GitRepos/Git-School-Stuff/Fall 2023/Senior Design/Background/1- Data Visualization for COVID' filename='covid_third_dataset.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <_.fcp.ObjectModelEncapsulateLegacy.false...relation connection='textscan.0q8wczv0qw6cz8171s3y019b2mmd' name='covid_third_dataset.csv' table='[covid_third_dataset#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+            <column datatype='date' name='Available date' ordinal='0' />
+            <column datatype='string' name='city' ordinal='1' />
+            <column datatype='string' name='country' ordinal='2' />
+            <column datatype='date' name='date_admission_hospital' ordinal='3' />
+            <column datatype='date' name='date_confirmation' ordinal='4' />
+            <column datatype='date' name='date_death_or_discharge' ordinal='5' />
+            <column datatype='date' name='date_onset_symptoms' ordinal='6' />
+            <column datatype='integer' name='ID' ordinal='7' />
+            <column datatype='string' name='lives_in_Wuhan' ordinal='8' />
+            <column datatype='boolean' name='Not_wuhan_related' ordinal='9' />
+            <column datatype='string' name='Outcome' ordinal='10' />
+            <column datatype='string' name='province' ordinal='11' />
+            <column datatype='string' name='Sex' ordinal='12' />
+            <column datatype='string' name='symptoms' ordinal='13' />
+            <column datatype='date' name='travel_history_dates' ordinal='14' />
+            <column datatype='string' name='travel_history_location' ordinal='15' />
+            <column datatype='boolean' name='Wuhan related' ordinal='16' />
+            <column datatype='integer' name='age' ordinal='17' />
+            <column datatype='real' name='latitude' ordinal='18' />
+            <column datatype='real' name='longitude' ordinal='19' />
+            <column datatype='integer' name='wuhan(0)_not_wuhan(1)' ordinal='20' />
+          </columns>
+        </_.fcp.ObjectModelEncapsulateLegacy.false...relation>
+        <_.fcp.ObjectModelEncapsulateLegacy.true...relation connection='textscan.0q8wczv0qw6cz8171s3y019b2mmd' name='covid_third_dataset.csv' table='[covid_third_dataset#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+            <column datatype='date' name='Available date' ordinal='0' />
+            <column datatype='string' name='city' ordinal='1' />
+            <column datatype='string' name='country' ordinal='2' />
+            <column datatype='date' name='date_admission_hospital' ordinal='3' />
+            <column datatype='date' name='date_confirmation' ordinal='4' />
+            <column datatype='date' name='date_death_or_discharge' ordinal='5' />
+            <column datatype='date' name='date_onset_symptoms' ordinal='6' />
+            <column datatype='integer' name='ID' ordinal='7' />
+            <column datatype='string' name='lives_in_Wuhan' ordinal='8' />
+            <column datatype='boolean' name='Not_wuhan_related' ordinal='9' />
+            <column datatype='string' name='Outcome' ordinal='10' />
+            <column datatype='string' name='province' ordinal='11' />
+            <column datatype='string' name='Sex' ordinal='12' />
+            <column datatype='string' name='symptoms' ordinal='13' />
+            <column datatype='date' name='travel_history_dates' ordinal='14' />
+            <column datatype='string' name='travel_history_location' ordinal='15' />
+            <column datatype='boolean' name='Wuhan related' ordinal='16' />
+            <column datatype='integer' name='age' ordinal='17' />
+            <column datatype='real' name='latitude' ordinal='18' />
+            <column datatype='real' name='longitude' ordinal='19' />
+            <column datatype='integer' name='wuhan(0)_not_wuhan(1)' ordinal='20' />
+          </columns>
+        </_.fcp.ObjectModelEncapsulateLegacy.true...relation>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[covid_third_dataset.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Available date</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[Available date]</local-name>
+            <parent-name>[covid_third_dataset.csv]</parent-name>
+            <remote-alias>Available date</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[covid_third_dataset.csv_E302F986667F4E5EBD9CD27E6C8977B3]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>city</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[city]</local-name>
+            <parent-name>[covid_third_dataset.csv]</parent-name>
+            <remote-alias>city</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[covid_third_dataset.csv_E302F986667F4E5EBD9CD27E6C8977B3]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>country</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[country]</local-name>
+            <parent-name>[covid_third_dataset.csv]</parent-name>
+            <remote-alias>country</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[covid_third_dataset.csv_E302F986667F4E5EBD9CD27E6C8977B3]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>date_admission_hospital</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[date_admission_hospital]</local-name>
+            <parent-name>[covid_third_dataset.csv]</parent-name>
+            <remote-alias>date_admission_hospital</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[covid_third_dataset.csv_E302F986667F4E5EBD9CD27E6C8977B3]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>date_confirmation</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[date_confirmation]</local-name>
+            <parent-name>[covid_third_dataset.csv]</parent-name>
+            <remote-alias>date_confirmation</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[covid_third_dataset.csv_E302F986667F4E5EBD9CD27E6C8977B3]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>date_death_or_discharge</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[date_death_or_discharge]</local-name>
+            <parent-name>[covid_third_dataset.csv]</parent-name>
+            <remote-alias>date_death_or_discharge</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[covid_third_dataset.csv_E302F986667F4E5EBD9CD27E6C8977B3]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>date_onset_symptoms</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[date_onset_symptoms]</local-name>
+            <parent-name>[covid_third_dataset.csv]</parent-name>
+            <remote-alias>date_onset_symptoms</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[covid_third_dataset.csv_E302F986667F4E5EBD9CD27E6C8977B3]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>ID</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[ID]</local-name>
+            <parent-name>[covid_third_dataset.csv]</parent-name>
+            <remote-alias>ID</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[covid_third_dataset.csv_E302F986667F4E5EBD9CD27E6C8977B3]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>lives_in_Wuhan</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[lives_in_Wuhan]</local-name>
+            <parent-name>[covid_third_dataset.csv]</parent-name>
+            <remote-alias>lives_in_Wuhan</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[covid_third_dataset.csv_E302F986667F4E5EBD9CD27E6C8977B3]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Not_wuhan_related</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[Not_wuhan_related]</local-name>
+            <parent-name>[covid_third_dataset.csv]</parent-name>
+            <remote-alias>Not_wuhan_related</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[covid_third_dataset.csv_E302F986667F4E5EBD9CD27E6C8977B3]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Outcome</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Outcome]</local-name>
+            <parent-name>[covid_third_dataset.csv]</parent-name>
+            <remote-alias>Outcome</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[covid_third_dataset.csv_E302F986667F4E5EBD9CD27E6C8977B3]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>province</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[province]</local-name>
+            <parent-name>[covid_third_dataset.csv]</parent-name>
+            <remote-alias>province</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[covid_third_dataset.csv_E302F986667F4E5EBD9CD27E6C8977B3]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Sex</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Sex]</local-name>
+            <parent-name>[covid_third_dataset.csv]</parent-name>
+            <remote-alias>Sex</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[covid_third_dataset.csv_E302F986667F4E5EBD9CD27E6C8977B3]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>symptoms</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[symptoms]</local-name>
+            <parent-name>[covid_third_dataset.csv]</parent-name>
+            <remote-alias>symptoms</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[covid_third_dataset.csv_E302F986667F4E5EBD9CD27E6C8977B3]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>travel_history_dates</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[travel_history_dates]</local-name>
+            <parent-name>[covid_third_dataset.csv]</parent-name>
+            <remote-alias>travel_history_dates</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[covid_third_dataset.csv_E302F986667F4E5EBD9CD27E6C8977B3]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>travel_history_location</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[travel_history_location]</local-name>
+            <parent-name>[covid_third_dataset.csv]</parent-name>
+            <remote-alias>travel_history_location</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[covid_third_dataset.csv_E302F986667F4E5EBD9CD27E6C8977B3]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Wuhan related</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[Wuhan related]</local-name>
+            <parent-name>[covid_third_dataset.csv]</parent-name>
+            <remote-alias>Wuhan related</remote-alias>
+            <ordinal>16</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[covid_third_dataset.csv_E302F986667F4E5EBD9CD27E6C8977B3]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>age</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[age]</local-name>
+            <parent-name>[covid_third_dataset.csv]</parent-name>
+            <remote-alias>age</remote-alias>
+            <ordinal>17</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[covid_third_dataset.csv_E302F986667F4E5EBD9CD27E6C8977B3]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>latitude</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[latitude]</local-name>
+            <parent-name>[covid_third_dataset.csv]</parent-name>
+            <remote-alias>latitude</remote-alias>
+            <ordinal>18</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[covid_third_dataset.csv_E302F986667F4E5EBD9CD27E6C8977B3]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>longitude</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[longitude]</local-name>
+            <parent-name>[covid_third_dataset.csv]</parent-name>
+            <remote-alias>longitude</remote-alias>
+            <ordinal>19</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[covid_third_dataset.csv_E302F986667F4E5EBD9CD27E6C8977B3]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>wuhan(0)_not_wuhan(1)</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[wuhan(0)_not_wuhan(1)]</local-name>
+            <parent-name>[covid_third_dataset.csv]</parent-name>
+            <remote-alias>wuhan(0)_not_wuhan(1)</remote-alias>
+            <ordinal>20</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[covid_third_dataset.csv_E302F986667F4E5EBD9CD27E6C8977B3]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column datatype='string' name='[Age (group)]' role='dimension' type='ordinal'>
+        <calculation class='categorical-bin' column='[age]' default='&quot;Other&quot;' new-bin='true'>
+          <bin default-name='false' value='&quot;1-10&quot;'>
+            <value>1</value>
+            <value>2</value>
+            <value>3</value>
+            <value>4</value>
+            <value>5</value>
+            <value>7</value>
+            <value>8</value>
+            <value>9</value>
+            <value>10</value>
+          </bin>
+          <bin default-name='false' value='&quot;11-20&quot;'>
+            <value>11</value>
+            <value>12</value>
+            <value>15</value>
+            <value>16</value>
+            <value>17</value>
+            <value>18</value>
+            <value>19</value>
+            <value>20</value>
+          </bin>
+          <bin default-name='false' value='&quot;21-30&quot;'>
+            <value>21</value>
+            <value>22</value>
+            <value>23</value>
+            <value>24</value>
+            <value>25</value>
+            <value>26</value>
+            <value>27</value>
+            <value>28</value>
+            <value>29</value>
+            <value>30</value>
+          </bin>
+          <bin default-name='false' value='&quot;31-40&quot;'>
+            <value>31</value>
+            <value>32</value>
+            <value>33</value>
+            <value>34</value>
+            <value>35</value>
+            <value>36</value>
+            <value>37</value>
+            <value>38</value>
+            <value>39</value>
+            <value>40</value>
+          </bin>
+          <bin default-name='false' value='&quot;41-50&quot;'>
+            <value>41</value>
+            <value>42</value>
+            <value>43</value>
+            <value>44</value>
+            <value>45</value>
+            <value>46</value>
+            <value>47</value>
+            <value>48</value>
+            <value>49</value>
+            <value>50</value>
+          </bin>
+          <bin default-name='false' value='&quot;51-60&quot;'>
+            <value>51</value>
+            <value>52</value>
+            <value>53</value>
+            <value>54</value>
+            <value>55</value>
+            <value>56</value>
+            <value>57</value>
+            <value>58</value>
+            <value>59</value>
+            <value>60</value>
+          </bin>
+          <bin default-name='false' value='&quot;61-70&quot;'>
+            <value>61</value>
+            <value>62</value>
+            <value>63</value>
+            <value>64</value>
+            <value>65</value>
+            <value>66</value>
+            <value>67</value>
+            <value>68</value>
+            <value>69</value>
+            <value>70</value>
+          </bin>
+          <bin default-name='false' value='&quot;71-80&quot;'>
+            <value>71</value>
+            <value>72</value>
+            <value>73</value>
+            <value>74</value>
+            <value>75</value>
+            <value>76</value>
+            <value>77</value>
+            <value>78</value>
+            <value>79</value>
+            <value>80</value>
+          </bin>
+          <bin default-name='false' value='&quot;81-90&quot;'>
+            <value>81</value>
+            <value>82</value>
+            <value>83</value>
+            <value>84</value>
+            <value>87</value>
+            <value>88</value>
+          </bin>
+          <bin default-name='false' value='&quot;91-100&quot;'>
+            <value>94</value>
+            <value>96</value>
+          </bin>
+        </calculation>
+      </column>
+      <column datatype='integer' name='[ID]' role='dimension' type='ordinal' />
+      <column caption='Not wuhan related' datatype='boolean' name='[Not_wuhan_related]' role='dimension' type='nominal' />
+      <_.fcp.ObjectModelTableType.true...column caption='covid_third_dataset.csv' datatype='table' name='[__tableau_internal_object_id__].[covid_third_dataset.csv_E302F986667F4E5EBD9CD27E6C8977B3]' role='measure' type='quantitative' />
+      <column caption='Age' datatype='integer' name='[age]' role='measure' type='quantitative' />
+      <column caption='City' datatype='string' name='[city]' role='dimension' semantic-role='[City].[Name]' type='nominal' />
+      <column caption='Country' datatype='string' name='[country]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
+      <column caption='Date Admission Hospital' datatype='date' name='[date_admission_hospital]' role='dimension' type='ordinal' />
+      <column caption='Date Confirmation' datatype='date' name='[date_confirmation]' role='dimension' type='ordinal' />
+      <column caption='Date Death Or Discharge' datatype='date' name='[date_death_or_discharge]' role='dimension' type='ordinal' />
+      <column caption='Date Onset Symptoms' datatype='date' name='[date_onset_symptoms]' role='dimension' type='ordinal' />
+      <column aggregation='Avg' caption='Latitude' datatype='real' name='[latitude]' role='measure' semantic-role='[Geographical].[Latitude]' type='quantitative' />
+      <column caption='lives in Wuhan' datatype='string' name='[lives_in_Wuhan]' role='dimension' type='nominal' />
+      <column aggregation='Avg' caption='Longitude' datatype='real' name='[longitude]' role='measure' semantic-role='[Geographical].[Longitude]' type='quantitative' />
+      <column caption='Province' datatype='string' name='[province]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+      <column caption='Symptoms' datatype='string' name='[symptoms]' role='dimension' type='nominal' />
+      <column caption='Travel History Dates' datatype='date' name='[travel_history_dates]' role='dimension' type='ordinal' />
+      <column caption='Travel History Location' datatype='string' name='[travel_history_location]' role='dimension' type='nominal' />
+      <column caption='Wuhan(0) Not Wuhan(1)' datatype='integer' name='[wuhan(0)_not_wuhan(1)]' role='measure' type='quantitative' />
+      <drill-paths>
+        <drill-path name='country, province, city'>
+          <field>[country]</field>
+          <field>[province]</field>
+          <field>[city]</field>
+        </drill-path>
+      </drill-paths>
+      <layout _.fcp.SchemaViewerObjectModel.false...dim-percentage='0.5' _.fcp.SchemaViewerObjectModel.false...measure-percentage='0.4' dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[Age (group)]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>&quot;1-10&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;41-50&quot;</bucket>
+            </map>
+            <map to='#76b7b2'>
+              <bucket>&quot;31-40&quot;</bucket>
+            </map>
+            <map to='#9c755f'>
+              <bucket>&quot;81-90&quot;</bucket>
+            </map>
+            <map to='#a2a2a2'>
+              <bucket>&quot;Other&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;61-70&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;91-100&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;21-30&quot;</bucket>
+            </map>
+            <map to='#edc948'>
+              <bucket>&quot;51-60&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;11-20&quot;</bucket>
+            </map>
+            <map to='#ff9da7'>
+              <bucket>&quot;71-80&quot;</bucket>
+            </map>
+          </encoding>
+          <encoding attr='shape' type='shape' />
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+      <_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
+        <objects>
+          <object caption='covid_third_dataset.csv' id='covid_third_dataset.csv_E302F986667F4E5EBD9CD27E6C8977B3'>
+            <properties context=''>
+              <relation connection='textscan.0q8wczv0qw6cz8171s3y019b2mmd' name='covid_third_dataset.csv' table='[covid_third_dataset#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+                  <column datatype='date' name='Available date' ordinal='0' />
+                  <column datatype='string' name='city' ordinal='1' />
+                  <column datatype='string' name='country' ordinal='2' />
+                  <column datatype='date' name='date_admission_hospital' ordinal='3' />
+                  <column datatype='date' name='date_confirmation' ordinal='4' />
+                  <column datatype='date' name='date_death_or_discharge' ordinal='5' />
+                  <column datatype='date' name='date_onset_symptoms' ordinal='6' />
+                  <column datatype='integer' name='ID' ordinal='7' />
+                  <column datatype='string' name='lives_in_Wuhan' ordinal='8' />
+                  <column datatype='boolean' name='Not_wuhan_related' ordinal='9' />
+                  <column datatype='string' name='Outcome' ordinal='10' />
+                  <column datatype='string' name='province' ordinal='11' />
+                  <column datatype='string' name='Sex' ordinal='12' />
+                  <column datatype='string' name='symptoms' ordinal='13' />
+                  <column datatype='date' name='travel_history_dates' ordinal='14' />
+                  <column datatype='string' name='travel_history_location' ordinal='15' />
+                  <column datatype='boolean' name='Wuhan related' ordinal='16' />
+                  <column datatype='integer' name='age' ordinal='17' />
+                  <column datatype='real' name='latitude' ordinal='18' />
+                  <column datatype='real' name='longitude' ordinal='19' />
+                  <column datatype='integer' name='wuhan(0)_not_wuhan(1)' ordinal='20' />
+                </columns>
+              </relation>
+            </properties>
+          </object>
+        </objects>
+      </_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Age'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='covid_third_dataset' name='federated.1wmnmak1h064fm16w36l5014rzn5' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1wmnmak1h064fm16w36l5014rzn5'>
+            <column datatype='string' name='[Age (group)]' role='dimension' type='ordinal'>
+              <calculation class='categorical-bin' column='[age]' default='&quot;Other&quot;' new-bin='true'>
+                <bin default-name='false' value='&quot;1-10&quot;'>
+                  <value>1</value>
+                  <value>2</value>
+                  <value>3</value>
+                  <value>4</value>
+                  <value>5</value>
+                  <value>7</value>
+                  <value>8</value>
+                  <value>9</value>
+                  <value>10</value>
+                </bin>
+                <bin default-name='false' value='&quot;11-20&quot;'>
+                  <value>11</value>
+                  <value>12</value>
+                  <value>15</value>
+                  <value>16</value>
+                  <value>17</value>
+                  <value>18</value>
+                  <value>19</value>
+                  <value>20</value>
+                </bin>
+                <bin default-name='false' value='&quot;21-30&quot;'>
+                  <value>21</value>
+                  <value>22</value>
+                  <value>23</value>
+                  <value>24</value>
+                  <value>25</value>
+                  <value>26</value>
+                  <value>27</value>
+                  <value>28</value>
+                  <value>29</value>
+                  <value>30</value>
+                </bin>
+                <bin default-name='false' value='&quot;31-40&quot;'>
+                  <value>31</value>
+                  <value>32</value>
+                  <value>33</value>
+                  <value>34</value>
+                  <value>35</value>
+                  <value>36</value>
+                  <value>37</value>
+                  <value>38</value>
+                  <value>39</value>
+                  <value>40</value>
+                </bin>
+                <bin default-name='false' value='&quot;41-50&quot;'>
+                  <value>41</value>
+                  <value>42</value>
+                  <value>43</value>
+                  <value>44</value>
+                  <value>45</value>
+                  <value>46</value>
+                  <value>47</value>
+                  <value>48</value>
+                  <value>49</value>
+                  <value>50</value>
+                </bin>
+                <bin default-name='false' value='&quot;51-60&quot;'>
+                  <value>51</value>
+                  <value>52</value>
+                  <value>53</value>
+                  <value>54</value>
+                  <value>55</value>
+                  <value>56</value>
+                  <value>57</value>
+                  <value>58</value>
+                  <value>59</value>
+                  <value>60</value>
+                </bin>
+                <bin default-name='false' value='&quot;61-70&quot;'>
+                  <value>61</value>
+                  <value>62</value>
+                  <value>63</value>
+                  <value>64</value>
+                  <value>65</value>
+                  <value>66</value>
+                  <value>67</value>
+                  <value>68</value>
+                  <value>69</value>
+                  <value>70</value>
+                </bin>
+                <bin default-name='false' value='&quot;71-80&quot;'>
+                  <value>71</value>
+                  <value>72</value>
+                  <value>73</value>
+                  <value>74</value>
+                  <value>75</value>
+                  <value>76</value>
+                  <value>77</value>
+                  <value>78</value>
+                  <value>79</value>
+                  <value>80</value>
+                </bin>
+                <bin default-name='false' value='&quot;81-90&quot;'>
+                  <value>81</value>
+                  <value>82</value>
+                  <value>83</value>
+                  <value>84</value>
+                  <value>87</value>
+                  <value>88</value>
+                </bin>
+                <bin default-name='false' value='&quot;91-100&quot;'>
+                  <value>94</value>
+                  <value>96</value>
+                </bin>
+              </calculation>
+            </column>
+            <_.fcp.ObjectModelTableType.false...column caption='covid_third_dataset.csv' datatype='integer' name='[__tableau_internal_object_id__].[covid_third_dataset.csv_E302F986667F4E5EBD9CD27E6C8977B3]' role='measure' type='quantitative' />
+            <column-instance column='[__tableau_internal_object_id__].[covid_third_dataset.csv_E302F986667F4E5EBD9CD27E6C8977B3]' derivation='Count' name='[__tableau_internal_object_id__].[cnt:covid_third_dataset.csv_E302F986667F4E5EBD9CD27E6C8977B3:qk]' pivot='key' type='quantitative' />
+            <_.fcp.ObjectModelTableType.true...column caption='covid_third_dataset.csv' datatype='table' name='[__tableau_internal_object_id__].[covid_third_dataset.csv_E302F986667F4E5EBD9CD27E6C8977B3]' role='measure' type='quantitative' />
+            <column caption='Age' datatype='integer' name='[age]' role='measure' type='quantitative' />
+            <column-instance column='[age]' derivation='None' name='[none:age:ok]' pivot='key' type='ordinal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1wmnmak1h064fm16w36l5014rzn5].[none:age:ok]'>
+            <groupfilter from='1' function='range' level='[none:age:ok]' to='96' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[federated.1wmnmak1h064fm16w36l5014rzn5].[none:age:ok]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='title' class='0' field='[federated.1wmnmak1h064fm16w36l5014rzn5].[__tableau_internal_object_id__].[cnt:covid_third_dataset.csv_E302F986667F4E5EBD9CD27E6C8977B3:qk]' scope='rows' value='Number of cases' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows>[federated.1wmnmak1h064fm16w36l5014rzn5].[__tableau_internal_object_id__].[cnt:covid_third_dataset.csv_E302F986667F4E5EBD9CD27E6C8977B3:qk]</rows>
+        <cols>[federated.1wmnmak1h064fm16w36l5014rzn5].[Age (group)]</cols>
+      </table>
+      <simple-id uuid='{ECA16A0C-03BB-421D-80B9-07CF0CD17658}' />
+    </worksheet>
+    <worksheet name='Outcome'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='covid_third_dataset' name='federated.1wmnmak1h064fm16w36l5014rzn5' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1wmnmak1h064fm16w36l5014rzn5'>
+            <column datatype='string' name='[Outcome]' role='dimension' type='nominal' />
+            <column caption='Age' datatype='integer' name='[age]' role='measure' type='quantitative' />
+            <column-instance column='[age]' derivation='Avg' name='[avg:age:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Outcome]' derivation='None' name='[none:Outcome:nk]' pivot='key' type='nominal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1wmnmak1h064fm16w36l5014rzn5].[none:Outcome:nk]'>
+            <groupfilter function='except' user:ui-domain='database' user:ui-enumeration='exclusive' user:ui-marker='enumerate'>
+              <groupfilter function='level-members' level='[none:Outcome:nk]' />
+              <groupfilter function='member' level='[none:Outcome:nk]' member='%null%' />
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.1wmnmak1h064fm16w36l5014rzn5].[none:Outcome:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows>[federated.1wmnmak1h064fm16w36l5014rzn5].[avg:age:qk]</rows>
+        <cols>[federated.1wmnmak1h064fm16w36l5014rzn5].[none:Outcome:nk]</cols>
+      </table>
+      <simple-id uuid='{E3646823-9F22-4772-A33D-ED341EE14148}' />
+    </worksheet>
+  </worksheets>
+  <windows saved-dpi-scale-factor='1.25' source-height='37'>
+    <window class='worksheet' name='Age'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <selection-collection>
+          <node-selection select-tuples='false'>
+            <oriented-node-reference orientation='vertical'>
+              <node-reference>
+                <axis>[federated.1wmnmak1h064fm16w36l5014rzn5].[__tableau_internal_object_id__].[cnt:covid_third_dataset.csv_E302F986667F4E5EBD9CD27E6C8977B3:qk]</axis>
+              </node-reference>
+              <page-reference />
+            </oriented-node-reference>
+          </node-selection>
+        </selection-collection>
+        <highlight>
+          <color-one-way>
+            <field>[federated.1wmnmak1h064fm16w36l5014rzn5].[Age (group)]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{C1B9FDD2-8289-49B6-91BC-C6BAC8516E5A}' />
+    </window>
+    <window class='worksheet' maximized='true' name='Outcome'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.1wmnmak1h064fm16w36l5014rzn5].[none:Outcome:nk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{7BFCD0A0-391D-45C6-9675-3FCA9FE8EA8E}' />
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='Age' width='192'>
+      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
+      1bApdtUAAAAASUVORK5CYII=
+    </thumbnail>
+    <thumbnail height='192' name='Outcome' width='192'>
+      iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAACXBIWXMAABJ0AAASdAHeZh94
+      AAAMzklEQVR4nO3dWXAUd2LH8W93j+bSPTqQBEKAkGRAHAZzGvBicxl2sZ0sm2zsLSe1D0mc
+      quQlqeQhD6aS2trnJJWXJH5IVbzeQFi8tvGarAn3jQVrc9hGBiQkJHSONJrRaGa684DNLptN
+      UU4ktdD/93mb0Yj5a6q/9F+t7v5bnud5iBjIsizL9nsQIn5SAGI0BSBGUwBiNAUgRlMAYrSA
+      3wOQ38zzPDzXxQMsy8ayLSy/BzUNKYApyBuLc+ynb/Hhx93kWTnsWD2v/sHLzCp0fuPr0yOd
+      XLjUy8rVzQQD2ql/HQpgCrr90c947wr82Z//JVWhDKf3/gNv7D3GX7zyNMO9fRRUVhO1MvTc
+      6yFaWkrbtRP8yxtXKCjNp2ZmDRVFIeK9XfQNj1I9ex4h0vTd62Y47VIUm0FZcYSx5AB98SwB
+      L8lIxqGsvJSR/h7SXpAZ1VVEApCM99HdP0QgUsyMyjKCzvTbBymAKejTixeoXv4qMwtDQIil
+      z67lrR+cJbF1Fv/4w79j+56/Z02whzd++Les+tO/Zvizm8QH73L+3HkWr/sG9r0b/NObRyib
+      O4c1W+fiXPl39p7rpa7c4Xavw8t/9Idw/af84I0veGlnM9cvniRRuZKnZtpcPHmaxd/9K7bV
+      xnnz397Fqaxi+E47dZt+j5dWz/H3g5kA2l9OQelUjlA078FjJxzDcofJZHP/88XRCtZvXEl1
+      9RPs/p3drJpbxPs/+g9qt3+P73/vZRZGb/D2+5+w+eXXePX7r/FczT0OHLlCFiioaWLHrm/z
+      wrNLcYIz2PHS77Jz9Sw6uvq5euIgnycLqauuoarM4+jR85P3AUwi7QGmoOKyKNd7h3EBG4/R
+      3jYoqCIcynvk93quSzyeo74iim1ZMJpgMBemuCiIZUNxfj7x/ji5KrBsG8e2sC0bx7GxsbDt
+      +/8nJvp7SQdiRMJhahd+g8aKORP7Q/tEe4ApaPH65+i7cJBLd4YYG+rigwPHaH5uM4XRAEE7
+      SzI1xtBAN72DSQCcQCF2doDhTBacIEufrKblxMckMjl6AnU0l41w4fJNxhJdnL3axaIlDQQf
+      MYbq+Q1ke/uZvWQlq55cQH7e9Jv/Azivv/76634PQh4WLp1FU43Dz9/ez4enPia2fCe7Ny0m
+      HI5SEU5wYP9BelN5REN5NK5cy+zSGMVuGz959yijxXPYsGE1qevH2P/ez1mweivLmmfTeuId
+      3jtykcqVL/LC043kEt3cSxaxatlcUoPdDHjlLGmoJtHbzmjhXNauWkHF2C32HniPi1duUVAz
+      n3lVxX5/NONqz549eyydDi2m0unQYrzHNoBsNovrun4PQx5zj20AmrnJeHhsAxAZDwpAjKYA
+      xGgKQIymAMRoCkCM5uvJcMN3P+HgoYuMAuAxPBRgx6u/zey8bn78xiGyBSEA6tfsZH1TuZ9D
+      lWlqypwKkU0N8uF/nWb1pi1E+s7zftssdq2r/V93UZlMBsdxHpy9KPJ1TaFTITz6vmghr+ZJ
+      isIO/Z13iPe3c/H8Ra7f6iI3NRqVaWhKXA/gjvbySWuWxdtnYFsWxfPXsapwCC83xp1Lh+lJ
+      bePpBWW42Sy53P2LQjzPI5vNYlnT8zRdmRxTIoC7rZ9j19ZTGby/MUdjM1kQmwnAwsYC9v34
+      KskFGygIBAgE7g9ZUyAZD/5vPW6S1tv91M+d9eUTY9xra2dgZAzXzTJwtxtKiqdGqTLt+Lxd
+      eSTuXGakpJma4q+uUbLIpXo48e5xEukMhErZtG0FYV/HKdPVlDkK9HVpCiT/X1PoKJCIPxSA
+      GE0BiNEUgBhNAYjRFIAYTQGI0RSAGG1anWHQPZBgcHh0Ut7Lsiwaa8sm5b1k4kyrAA4c/5SD
+      Zz6flPfKc2z2/c13JuW9ZOJoCiRGUwBiNAUgRlMAYjQFIEZTAGI0BSBGUwBiNAUgRlMAYjQF
+      IEZTAGI0BSBGUwBiNAUgRvP1egDPc3HdX70xnYVtW199EdfzsCwby0J3gZYJ4WsAia5r/OzD
+      FtIAbpY7d5L81h//PvWhBIfe/YDetAehSnbs2kaZbg4qE8DXAAqrF7H7lUUApIe6OHzqKjX5
+      QTpbzhBqfp7vNhUzcO0op37Ryc5VMzVfk3E3RbYpl54blyicu5z84Chttx2amsoJOHlULGjC
+      utXG5FzpK6aZEtcEZ4bucLkjn407i7FIkAtEiDhfftHJJxLI4ALZR6wQk8tlJ23MHjA6qiwf
+      d1MgAI/21puUzqun0LYAhzAjxMc8YkELLz3ACFEcIPCIFWIcZ/J+HAsIh/WLyePO/ylQLk5r
+      W5L6udVfPhGhfkGYllOfkUonuX6ihfzm+VogQyaEzwF4JDq/oKBpJRUP5jwWpQ3rme+0sn/f
+      AW6GmlhfX4wOgspE8HkKZFFQu5y1v/asHYiwZMMOlvgyJjGJ/1MgER8pADGaAhCjKQAxmgIQ
+      oykAMZoCEKMpADGaAhCjKQAxmgIQoykAMZoCEKMpADGaAhCjKQAxmgIQoykAMZoCEKMpADGa
+      AhCjKQAxmgIQoykAMZoCEKP5e2c4zyM12MnpE6foGEwTm7eMzasX4mRu86N/PoRbdP+OoPVr
+      drK+qdzXocr05O8SSZkEZ858RO1TW3lmRj6J4SQByyLb20XhUzvYtbZWuyiZUL5uX4l4N4lM
+      kNTdTzl3roWBUbBsi77Odgbu3eLM6bNcab1L1vMe/Y+J/B/4ugfIZobo6RykrmEOsXCKC8eO
+      kLdtG7GmjayPDePlxui4coTe0c2sX1SBpwUyZJz5GoDjRJgxZy4Lm5oI2C7heDcdgylmzq6i
+      oaQKgMb6CPveuk5qUQUFWiBDxpmvU6BIQSWZxC06BpLksqN0x8coDHt03bpFXyKNm8vQ194B
+      pSXk+TlQmbZ83QPkRUvYuPIJDn+wn6M5qKxfzuJYPkPxNo4fPMXQaAY7Ws6mLasJ+TlQmbb8
+      PQxqOcTqlvDtuoeXwog0LOXFhqU+DUpMoqOMYjQFIEZTAGI0BSBGUwBiNAUgRlMAYjQFIEZT
+      AGI0BSBGUwBiNAUgRlMAYjQFIEZTAGI0BSBGUwBiNAUgRlMAYjQFIEZTAGI0BSBGUwBiNAUg
+      RlMAYjR/7wwH4HlksxlyroftBAg495t0c1lyOQ/LcQg49kN3gRYZLz6vEOPSf/sKxy9cJZX1
+      iFY/wdZ1S8jL9PDBO//JoGvj2qVsf2E75boRs0wAXwPIpQY5d62TtVtfoLwwSGYsQ57j0X7h
+      LNGlO9jaUET8s2OcvNzBztWzcPwcrExLvv4OMJLoZSyV4fKxg+zde4Ard+J4Voo77Q4NjTEC
+      ToCypgbs221oKQqZCP7uAbLD9PW77Ni9nWInyeGDhykseYZcIELkqzTtfCKBLB6Q1QoxMs58
+      DSCQV0RZTYpYYYQ8O0zz7BK6RlwiJBhMe8RCFt5oPwkrnwAQ0AoxMs58nQJFCysJjNzmekec
+      bDpBa3eSsvxi6hdGaTl5nVQ6ydXjLRQ2z9cCGTIh/F0jLFTEc9s2cfzwIS6PeDSu2EhdaQSn
+      eANP9B/mJ/taiM1bxrPzitBBUJkIPq8QYxEqqmHzi995+Hk7xKJ1z7NonT/DEnPoL8FiNAUg
+      RlMAYjQFIEZTAGI0BSBGUwBiNAUgRlMAYjQFIEZTAGI0BSBGUwBiNAUgRlMAYjQFIEZTAGI0
+      BSBGUwBiNAUgRlMAYjQFIEZTAGI0BSBGUwBiNJ9XiHEZ6rlL18DI/YfBAubWVuFYadpvtJP+
+      8lVFlbOpKtGNaGX8+RtALsXFU2fxYjOIBGyIQt1MD2+klSMnWmlYUIkF2EU1vg5Tpi9fA3DT
+      o4xEY2xes5Zw3i9nY4nuu1SseoZ1zSU+jk5M4GsA2ZxHtvsqb73ZRjCUT+OKdSyrr2IoMcrN
+      j97mX1scCivmsPGZNcQiAfA8PM8D7i+Q4brug8dfPTdZPHiwWIc8vnwNIFhYzouvvAZ4jMbv
+      8v47J6mY8U3qVnyLP1kBbi5N55UjHD7yGbueX0jAdXFdF+DBxv+rK8R4njup41cAjz9fA/C8
+      HJ7nYNsW4aJyZhWFSWYz5HJBHMfGdkLMWtCI/YsOskDIcXCcXy6V9+srxNj25C2jZwHBYHDS
+      3k8mhq8BJONtnL/QTdPSBkh0ciPpsSXs8enp44xVzae2xOH25fNEm55Gx4BkIvgaQLSolub5
+      SS6cO4mbV8KG7Vsoi4YpXbmMS2fPceraGCW1T7F1aY2WSJUJ4WsAlh2gfM4its9Z9NDzTqiY
+      FRu3sMKncYk59JdgMZoCEKMpADGaAhCjKQAxmgIQoykAMZoCEKMpADGaAhCjKQAxmgIQoykA
+      MZoCEKMpADGaAhCjKQAxmgIQoykAMZoCEKMpADGaAhCjKQAxmgIQo/03y2YM6uR6CL8AAAAA
+      SUVORK5CYII=
+    </thumbnail>
+  </thumbnails>
+</workbook>

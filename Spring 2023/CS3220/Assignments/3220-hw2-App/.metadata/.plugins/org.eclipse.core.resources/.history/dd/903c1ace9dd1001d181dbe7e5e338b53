@@ -1,0 +1,117 @@
+package homework2.servlet;
+
+import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+
+import model.PatientEntry;
+import model.VaccineEntry;
+import utilities.ServletUtilities;
+
+/**
+ * Servlet implementation class AddPatient
+ */
+@WebServlet("/AddPatient")
+public class AddPatient extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	private List<PatientEntry> patientEntries;
+    private List<VaccineEntry> vaccineEntries;
+	
+
+//	public void init(ServletConfig config) throws ServletException {
+//        super.init(config);
+//        patientEntries = ServletUtilities.getPatientEntresFromServletContext(getServletContext());
+//        getServletContext().setAttribute("patientEntries", patientEntries);
+//    }
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public AddPatient() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		
+		// Get the list of available vaccines
+        List<VaccineEntry> vaccineEntries = ServletUtilities.getVaccineEntresFromServletContext(getServletContext());
+
+        // Filter out vaccines that are out of stock
+        List<VaccineEntry> availableVaccineEntries = new ArrayList<VaccineEntry>();
+        for (VaccineEntry vaccineEntry : vaccineEntries) {
+            if (vaccineEntry.getTotalDoseLeft() > 0) {
+                availableVaccineEntries.add(vaccineEntry);
+            }
+        }
+
+        // Set the available vaccines as a request attribute
+        request.setAttribute("availableVaccineEntries", availableVaccineEntries);
+
+        request.getRequestDispatcher("AddPatient.jsp").forward(request, response);
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		String patientName = request.getParameter( "patient" );
+        String vaccineName = request.getParameter( "vaccine" );
+        
+        LocalDate currDate = LocalDate.now();
+        
+        DateTimeFormatter formatDate = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+           
+     // Get the list of available vaccines
+        List<VaccineEntry> vaccineEntries = ServletUtilities.getVaccineEntresFromServletContext(getServletContext());
+        patientEntries = ServletUtilities.getPatientEntresFromServletContext(getServletContext());
+
+        // Find the selected vaccine and decrement its total dose left by 1
+        VaccineEntry selectedVaccine = null;
+        for (VaccineEntry vaccineEntry : vaccineEntries) {
+            if (vaccineEntry.getVaccineName().equals(vaccineName) && vaccineEntry.getTotalDoseLeft() > 0) {
+                selectedVaccine = vaccineEntry;
+                selectedVaccine.setTotalDoseLeft(selectedVaccine.getTotalDoseLeft() - 1);
+                break;
+            }
+        }
+
+        // If the selected vaccine was not found or was out of stock, redirect back to the AddPatient page
+        if (selectedVaccine == null) {
+            response.sendRedirect("AddPatient");
+            return;
+        }
+
+        // Generate a unique patient id
+        //int patientId = patientEntries.size() + 1;
+
+        // Set the date of the first dose for the patient to the current date
+        LocalDate firstDoseDate = LocalDate.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+        String formattedDate = formatter.format(firstDoseDate);
+
+        // Create a new PatientEntry and add it to the patientEntries list
+        //PatientEntry patientEntry = new PatientEntry( patientName, selectedVaccine.getVaccineName(),formattedDate, "");
+        patientEntries.add(new PatientEntry( patientName, selectedVaccine.getVaccineName(),formattedDate, ""));
+        
+        
+        getServletContext().setAttribute("patientEntries", patientEntries);
+
+        response.sendRedirect( "ListPatient" );
+	}
+
+}

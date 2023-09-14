@@ -1,0 +1,70 @@
+package lab6.servlet;
+
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.util.*;
+
+/**
+ * Servlet implementation class AdditionPractice
+ */
+@WebServlet("/AdditionPractice")
+public class AdditionPractice extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	private static Random rand;
+	private static int numb1;
+	private static int numb2;
+	
+	
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public AdditionPractice() {
+        super();
+        // TODO Auto-generated constructor stub
+        rand = new Random();
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		response.setContentType("text/html");
+		
+		numb1 = rand.nextInt(10);
+		numb2 = rand.nextInt(10);
+		
+		response.getWriter().print("<form method='post' action='AdditionPractice'>"+ "<input type='text' value=" + numb1 + "/>"+ "+" + "<input type='text' value=" + numb2 + "/>" + "<input name='res' type='text'/>" + "<input type='submit'/> </form>");
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		
+		response.setContentType("text/html");
+		
+		int result = numb1 + numb2;
+		
+		int resultInput = Integer.parseInt(request.getParameter("res"));
+		
+		response.getWriter().println("Correct Answer:" + result);
+		
+		if(result == resultInput)
+		{
+			response.getWriter().print("Your answer " + resultInput + " is correct");
+		}
+		else
+		{
+			response.getWriter().print("<form method='get' action='AdditionPractice'>" + "<input type='submit' value='Try Again'>" + "</form>");
+		}
+		doGet(request, response);
+	}
+
+}

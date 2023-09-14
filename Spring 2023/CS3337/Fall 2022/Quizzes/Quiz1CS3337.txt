@@ -1,0 +1,5 @@
+quiz 1 3337
+
+Q1 django-admin startproject projectname 
+Q2 True
+Q3 True

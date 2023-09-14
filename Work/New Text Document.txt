@@ -1,0 +1,34 @@
+# Import the Selenium module
+Import-Module Selenium
+
+# Specify the path to the Microsoft Edge WebDriver executable
+$EdgeDriverPath = "C:\Path\To\MicrosoftWebDriver.exe"  # Replace with your actual path
+
+# Start a new Selenium WebDriver session with Microsoft Edge
+$Driver = Start-SeEdge -DriverExecutablePath $EdgeDriverPath
+
+# Navigate to the HP warranty check page
+$Driver.Navigate().GoToUrl("https://support.hp.com/us-en/checkwarranty")
+
+# Find and interact with the necessary elements on the page
+$SerialNumberInput = $Driver.FindElementById("wFormSerialNumber")
+$ProductNumberInput = $Driver.FindElementById("wFormProductNumber")
+$SubmitButton = $Driver.FindElementByCssSelector("button[data-gaaction='checkwarranty']")
+
+# Enter your product's serial number and product number
+$SerialNumberInput.SendKeys("YourSerialNumber")
+$ProductNumberInput.SendKeys("YourProductNumber")
+
+# Click the "Check Warranty" button
+$SubmitButton.Click()
+
+# Wait for the warranty information to load (you may need to adjust the sleep duration)
+Start-Sleep -Seconds 5
+
+# Retrieve and display the warranty information
+$WarrantyInfo = $Driver.FindElementByCssSelector(".warranty-status-result")
+Write-Host "Warranty Information:"
+Write-Host $WarrantyInfo.Text
+
+# Close the browser window
+$Driver.Quit()

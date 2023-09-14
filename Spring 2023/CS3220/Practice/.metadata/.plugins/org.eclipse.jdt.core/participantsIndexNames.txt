@@ -1,0 +1,5 @@
+INDEX VERSION 1.131
+D:\Cal State LA\School Stuff\Spring 2023\CS3220\Practice\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1437523158.index
+\midtermPractice\src\main\java
+D:\Cal State LA\School Stuff\Spring 2023\CS3220\Practice\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\261548748.index
+\practice\src\main\java

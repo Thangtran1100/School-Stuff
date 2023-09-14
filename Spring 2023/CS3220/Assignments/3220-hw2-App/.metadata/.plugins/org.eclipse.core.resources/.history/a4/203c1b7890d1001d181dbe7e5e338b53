@@ -1,0 +1,72 @@
+package homework2.servlet;
+
+import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.List;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import model.PatientEntry;
+import model.VaccineEntry;
+import utilities.ServletUtilities;
+
+/**
+ * Servlet implementation class AddPatient
+ */
+@WebServlet("/AddPatient")
+public class AddPatient extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	private List<VaccineEntry> entries;
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public AddPatient() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		entries = ServletUtilities.getVaccineEntresFromServletContext(getServletContext());
+
+        request.getRequestDispatcher("AddPatient.jsp").forward(request, response);
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		String patientName = request.getParameter( "patient" );
+        String vaccineName = request.getParameter( "vaccine" );
+        
+        LocalDate currDate = LocalDate.now();
+        
+        DateTimeFormatter formatDate = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+
+        List<PatientEntry> patientEntries = ServletUtilities.getPatientEntresFromServletContext(getServletContext());
+        
+        patientEntries.add( new PatientEntry(patientName, vaccineName, formatDate.format(currDate).toString(), ""));
+
+		
+        
+        for (VaccineEntry entry : entries) {
+            if (entry.getVaccineName().equals(vaccineName) && entry.getTotalDoseLeft() > 0) {
+                entry.setTotalDoseLeft(entry.getTotalDoseLeft() - 1);
+                break;
+            }
+        }
+        
+        request.setAttribute("patientEntries", patientEntries);
+        response.sendRedirect( "ListPatient" );
+	}
+
+}

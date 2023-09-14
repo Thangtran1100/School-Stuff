@@ -1,0 +1,22 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>List of Polls</title>
+</head>
+<body>
+  <h2>List of Polls</h2>
+  <ul>
+    <c:forEach items="${polls}" var="poll">
+      <li>
+        <a href="Poll?question=${poll.question}&answer=${poll.answers[0]}&answer=${poll.answers[1]}&answer=${poll.answers[2]}&multiple=false">
+          ${poll.question}
+        </a>
+      </li>
+    </c:forEach>
+  </ul>
+  <a href="CreatePoll.jsp">Create a New Poll</a>
+</body>
+</html>

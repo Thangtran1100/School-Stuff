@@ -1,0 +1,52 @@
+<%@ page contentType="text/html;charset=UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>List Vaccine</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+
+	<div class="container">
+		<br>
+			<h1>Vaccine List</h1>
+		<br> 
+
+		<a href="NewVaccine" class="btn btn-primary">New Vaccine</a> 
+		<a href="NewDose" class="btn btn-primary">New Doses</a>
+		
+		<br> <br>
+
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Vaccine</th>
+					<th>Doses Required</th>
+					<th>Days Between Doses</th>
+					<th>Total Doses Received</th>
+					<th>Total Doses Left</th>
+					<th>Edit</th>
+				</tr>
+			</thead>
+			
+			<tbody>
+				<c:forEach var="entry" items="${entries}">
+					<tr>
+						<td>${entry.vaccineName}</td>
+						<td>${entry.doseRequired}</td>
+						<td>${entry.daysBetweenDose}</td>
+						<td>${entry.totalDoseReceived}</td>
+						<td>${entry.totalDoseLeft}</td>
+						<td><a href="EditVaccine?id=${entry.vaccineId}">Edit</a></td>
+					</tr>
+				</c:forEach>
+			</tbody>
+		</table>
+
+	</div>
+
+</body>
+</html>

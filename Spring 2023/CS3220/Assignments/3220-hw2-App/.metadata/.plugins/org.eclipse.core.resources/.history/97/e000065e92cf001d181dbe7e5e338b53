@@ -1,0 +1,72 @@
+package model;
+
+import java.util.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
+import model.VaccineEntry;
+
+public class PatientEntry {
+
+	static int idSeed = 1;
+
+	private int id;
+
+	private String patientName;
+
+	private String vaccine;
+
+	private String firstDoseDate;
+
+	private String secondDoseDate;
+	
+	private VaccineEntry vaccines;
+	
+	public PatientEntry(String patientName, String vaccine, String firstDoseDate, String secondDoseDate) {
+		this.id = idSeed++;
+		this.patientName = patientName;
+		this.vaccine = vaccine;
+		this.firstDoseDate = firstDoseDate;
+		this.secondDoseDate = secondDoseDate;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getPatientName() {
+		return patientName;
+	}
+
+	public void setPatientName(String patientName) {
+		this.patientName = patientName;
+	}
+
+	public String getVaccineName() {
+		return vaccine;
+	}
+
+	public void setVaccineName(String vaccineName) {
+		this.vaccine = vaccineName;
+	}
+
+	public String getFirstDoseDate() {
+		return firstDoseDate;
+	}
+
+	public void setFirstDoseDate(String firstDoseDate) {
+		this.firstDoseDate = firstDoseDate;
+	}
+
+	public String getSecondDoseDate() {
+		return secondDoseDate;
+	}
+
+	public void setSecondDoseDate(String secondDoseDate) {
+		this.secondDoseDate = secondDoseDate;
+	}
+}

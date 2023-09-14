@@ -1,0 +1,106 @@
+package model;
+
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Management {
+    private List<PatientEntry> patients;
+    private List<VaccineEntry> vaccines;
+    
+    public Management() {
+        this.patients = new ArrayList<>();
+        this.vaccines = new ArrayList<>();
+    }
+    
+    public void addPatient(PatientEntry patient) {
+        patients.add(patient);
+        vaccines.add(patient);
+    }
+    
+    public void addVaccine(VaccineEntry vaccine) {
+        vaccines.add(vaccine);
+    }
+    
+    public void removePatient(int id) {
+        PatientEntry patientToRemove = null;
+        for (PatientEntry patient : patients) {
+            if (patient.getId() == id) {
+                patientToRemove = patient;
+                break;
+            }
+        }
+        if (patientToRemove != null) {
+            patients.remove(patientToRemove);
+            vaccines.remove(patientToRemove);
+        }
+    }
+    
+    public void removeVaccine(int id) {
+        VaccineEntry vaccineToRemove = null;
+        for (VaccineEntry vaccine : vaccines) {
+            if (vaccine.getId() == id) {
+                vaccineToRemove = vaccine;
+                break;
+            }
+        }
+        if (vaccineToRemove != null) {
+            vaccines.remove(vaccineToRemove);
+        }
+    }
+    
+    public List<PatientEntry> getPatients() {
+        return patients;
+    }
+    
+    public List<VaccineEntry> getVaccines() {
+        return vaccines;
+    }
+    
+    public List<VaccineEntry> getAvailableVaccines() {
+        List<VaccineEntry> availableVaccines = new ArrayList<>();
+        for (VaccineEntry vaccine : vaccines) {
+            if (vaccine.getTotalDoseLeft() > 0) {
+                availableVaccines.add(vaccine);
+            }
+        }
+        return availableVaccines;
+    }
+    
+    public void updatePatientDose(PatientEntry patient, int doseReceived) {
+        VaccineEntry vaccineToUpdate = null;
+        for (VaccineEntry vaccine : vaccines) {
+            if (vaccine.getVaccine().getVaccineName().equals(patient.getVaccineTypeName())) {
+                vaccineToUpdate = vaccine;
+                break;
+            }
+        }
+        if (vaccineToUpdate != null) {
+            vaccineToUpdate.setTotalDoseLeft(String.valueOf(vaccineToUpdate.getTotalDoseLeft() - doseReceived));
+            patient.setTotalDoseReceived(String.valueOf(patient.getTotalDoseReceived() + doseReceived));
+            if (vaccineToUpdate.getTotalDoseLeft() == 0) {
+                vaccineToUpdate = null;
+            }
+        }
+    }
+    
+    public void updatePatientSecondDoseDate(PatientEntry patient) {
+        VaccineEntry vaccineToUpdate = null;
+        for (VaccineEntry vaccine : vaccines) {
+            if (vaccine.getVaccine().getVaccineName().equals(patient.getVaccineTypeName())) {
+                vaccineToUpdate = vaccine;
+                break;
+            }
+        }
+        
+        LocalDate currDate = LocalDate.now();
+        
+        DateTimeFormatter formatDate = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+        
+        if (vaccineToUpdate != null) {
+            patient.setSecondDoseDate(formatDate.format(currDate).toString());
+        }
+    }
+}

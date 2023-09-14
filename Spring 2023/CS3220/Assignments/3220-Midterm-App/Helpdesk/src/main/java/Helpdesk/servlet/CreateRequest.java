@@ -1,0 +1,63 @@
+package Helpdesk.servlet;
+
+import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.List;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import model.HelpdeskEntry;
+import utilities.RequestServletUtilities;
+
+/**
+ * Servlet implementation class CreateRequest
+ */
+@WebServlet("/CreateRequest")
+public class CreateRequest extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public CreateRequest() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		request.getRequestDispatcher("CreateRequest.jsp").forward(request, response);
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		
+		LocalDateTime currentTime = LocalDateTime.now();
+		
+		DateTimeFormatter formatOutput = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm a");
+		
+		String requestTime = formatOutput.format(currentTime);
+		
+		String customerName = request.getParameter( "customerName" );
+        String departmentName = request.getParameter( "departmentName" );
+        String reason = request.getParameter( "reason" );
+
+        List<HelpdeskEntry> entries = RequestServletUtilities.getHelpdeskEntresFromServletContext(getServletContext());
+        entries.add( new HelpdeskEntry( requestTime, customerName, departmentName, "Created", "", reason ));
+
+
+        response.sendRedirect( "DisplayRequest" );
+	}
+
+}

@@ -1,0 +1,7 @@
+INDEX VERSION 1.4+D:\Cal State LA\School Stuff\Spring 2023\CS3220\3220-Lab-App\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+2366358064.index
+1536300481.index
+3279304179.index
+211078289.index
+702923059.index
+2453327989.index

@@ -1,0 +1,85 @@
+package homework2.servlet;
+
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import model.Management;
+import model.PatientEntry;
+import model.VaccineEntry;
+import model.VaccineType;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
+/**
+ * Servlet implementation class SecondDoseReceived
+ */
+@WebServlet("/SecondDoseReceived")
+public class SecondDoseReceived extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public SecondDoseReceived() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		request.getRequestDispatcher("ListPatient.jsp").forward(request, response);
+		
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		// TODO Auto-generated method stub
+//		String patientId = request.getParameter("patientId");
+//		
+//		DateTimeFormatter formatDate = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+//		
+//		Management patientManage = new Management();
+//		
+//		PatientEntry patient = patientManage.getPatientById(patientId);
+//        VaccineType vaccine = patient.getVaccine();
+//        
+//        if (vaccine.getDoseRequired().equals("2") && patient.getSecondDoseDate() == null) {
+//            // If this is the second dose, set the second dose date
+//            patient.setSecondDoseDate(formatDate.format(LocalDate.now()));
+//        }
+//        
+//        patient.decrementDose();
+	    
+//	    PatientEntry patient = patientManage.getPatientById(patientId);
+//	    if (patient == null) {
+//	        request.setAttribute("errorMessage", "Invalid patient ID");
+//	        response.sendRedirect("ListPatient");
+//	        return;
+//	    }
+//	    VaccineEntry typeVaccine = patientManage.getVaccineByName(patient.getVaccine().getVaccineName());
+//
+//
+//	    if (typeVaccine.getTotalDoseLeft() > 0 && patient.getSecondDoseDate() == null) {
+//	        patient.setSecondDoseDate(formatDate.format(LocalDate.now()));
+//	        typeVaccine.setTotalDoseLeft(String.valueOf(typeVaccine.getTotalDoseLeft() - 1));
+//	        patientManage.updatePatient(patientId, typeVaccine);
+//	    }
+
+		response.sendRedirect("ListPatient");
+	}
+
+}

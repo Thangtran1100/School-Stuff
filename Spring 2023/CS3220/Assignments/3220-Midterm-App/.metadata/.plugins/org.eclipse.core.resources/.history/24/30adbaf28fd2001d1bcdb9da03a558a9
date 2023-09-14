@@ -1,0 +1,57 @@
+package utilities;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.servlet.ServletContext;
+
+import model.HelpdeskEntry;
+
+public class RequestServletUtilities {
+	
+	public static final String RequestEntresKey = "entries";
+	public static final String DOCTYPE =
+			"<!DOCTYPE HTML>";
+	
+	public static String headWithTitle(String title) {
+		return(
+				DOCTYPE + "\n" +
+						"<HTML>\n" +
+						"<HEAD><TITLE>" + title + "</TITLE></HEAD>\n");
+	}
+	
+	public static String titleWithBody(String title, String body) {
+		return (headWithTitle(title) + "<BODY>" + body + "</BODY>\n" + "</HTML>\n");
+	}
+	
+	public static int getInt(String str){
+		try {
+			int val = str == null || str.trim().length() == 0 ? 0
+		            : Integer.parseInt( str );
+			return val;
+		}catch(Exception ex) { }
+		return 0;
+   }
+	
+	public static HelpdeskEntry getEntry(List<HelpdeskEntry> entries, int id){
+		HelpdeskEntry entry = null;
+		for( var e : entries )
+            if( e.getRequestId() == id )
+            {
+                entry = e;
+                break;
+            }
+		return entry;
+   }
+	
+	public static List<HelpdeskEntry> getVaccineEntresFromServletContext(ServletContext context){
+		var obj = context.getAttribute( RequestEntresKey );
+		if (obj == null) return new ArrayList<HelpdeskEntry>();
+		try {
+			return (List<HelpdeskEntry>) obj;
+		}catch(Exception ex) { return new ArrayList<HelpdeskEntry>(); }
+   }
+
+
+}
+

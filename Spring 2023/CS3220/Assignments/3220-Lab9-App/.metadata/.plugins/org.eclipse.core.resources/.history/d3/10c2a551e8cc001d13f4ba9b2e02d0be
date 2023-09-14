@@ -1,0 +1,49 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Edit Vaccine</title>
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	      crossorigin="anonymous">
+</head>
+<body>
+
+<div class="container mt-5">
+	<h1>Edit Vaccine</h1>
+	<form method="post" action="EditVaccine">
+
+		<c:forEach var="vaccineEntry" items="${vaccineEntry}">
+			<c:if test="${vaccineEntry.id == param.id}">
+				<div class="form-group">
+					<label for="name">Name</label>
+					<input type="text" class="form-control" id="name" name="name" value="${vaccineEntry.vaccine}">
+				</div>
+				<div class="form-group">
+					<label for="dose">Doses Required</label>
+					<select class="form-control" id="dose" name="dose">
+						<c:forEach var="index" begin="1" end="2">
+							<c:choose>
+								<c:when test="${index == vaccineEntry.doseRequired}">
+									<option value="${index}" selected>${index}</option>
+								</c:when>
+								<c:otherwise>
+									<option value="${index}">${index}</option>
+								</c:otherwise>
+							</c:choose>
+						</c:forEach>
+					</select>
+				</div>
+				<div class="form-group">
+					<label for="days">Days Between Doses</label>
+					<input type="text" class="form-control" id="days" name="days" value="${vaccineEntry.daysBetweenDose}">
+				</div>
+			</c:if>
+		</c:forEach>
+
+		<button type="submit" class="btn btn-primary">Save</button>
+	</form>
+</div>

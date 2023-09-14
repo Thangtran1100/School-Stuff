@@ -1,0 +1,98 @@
+package model;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Management {
+    private List<PatientEntry> patient;
+    private List<VaccineEntry> vaccines;
+    
+    public Management() {
+        patient = new ArrayList<PatientEntry>();
+        this.vaccines = new ArrayList<VaccineEntry>();
+    }
+    
+    public void updatePatient(String patientId, VaccineEntry vaccine) {
+    	
+    	DateTimeFormatter formatDate = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+    	
+        PatientEntry patient = getPatientById(patientId);
+        if (patient != null && vaccine != null) {
+            patient.setVaccine(vaccine.getVaccine());
+            if (vaccine.getVaccine().getDoseRequired() == "2" && patient.getSecondDoseDate() == null && vaccine.getTotalDoseLeft() > 0) {
+                vaccine.setTotalDoseLeft(String.valueOf(vaccine.getTotalDoseLeft() - 1));
+                //patient.setSecondDoseDate(formatDate.format(LocalDate.now()).toString());
+            }
+        }
+        
+     // update the patient and vaccine lists
+        for (int i = 0; i < patient.size(); i++) {
+            if (patient.get(i).getPatientId().equals(patientId)) {
+            	patient.set(i, patient);
+                break;
+            }
+        }
+        for (int i = 0; i < vaccines.size(); i++) {
+            if (String.valueOf(vaccines.get(i).getId()).equals(vaccine.getId())) {
+            	vaccines.set(i, vaccine);
+                break;
+            }
+        }
+    }
+    
+    public void addPatient(PatientEntry newPatient) {
+        patient.add(newPatient);
+    }
+    
+    public void removePatient(int patientId) {
+    	for (int i = 0; i < patient.size(); i++) {
+    		if (patient.get(i).getId() == patientId) {
+                patient.remove(i);
+                break;
+            }
+        }
+    }
+    
+    public PatientEntry getPatientById(String patientId) {
+        for (PatientEntry patient : patient) {
+            if (patient.getUuid() == patientId) {
+                return patient;
+            }
+        }
+        return null;
+    }
+    
+    public List<PatientEntry> getAllPatients() {
+        return patient;
+    }
+    
+    public void addVaccine(VaccineEntry vaccine) {
+        vaccines.add(vaccine);
+    }
+
+    public void removeVaccine(VaccineEntry vaccine) {
+        vaccines.remove(vaccine);
+    }
+
+    public List<VaccineEntry> getAvailableVaccines() {
+        List<VaccineEntry> availableVaccines = new ArrayList<VaccineEntry>();
+        
+        for (VaccineEntry vaccine : vaccines) {
+            if (vaccine.getTotalDoseLeft() > 0) {
+                availableVaccines.add(vaccine);
+            }
+        }
+        return availableVaccines;
+    }
+    
+    public VaccineEntry getVaccineByName(String name) {
+        for (VaccineEntry vaccine : vaccines) {
+            if (vaccine.getVaccine().getVaccineName().equalsIgnoreCase(name)) {
+                return vaccine;
+            }
+        }
+        return null;
+    }
+}

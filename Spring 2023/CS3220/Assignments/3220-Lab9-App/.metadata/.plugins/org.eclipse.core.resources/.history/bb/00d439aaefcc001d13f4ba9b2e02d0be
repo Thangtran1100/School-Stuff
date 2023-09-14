@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>New Dose</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+	<div class="container">
+		<h2>New Dose</h2>
+		<form action="NewDose" method="post">
+			<div class="form-group">
+				<label for="dose">Doses Required:</label>
+				<select class="form-control" id="dose" name="dose">
+					<c:forEach items="${entries}" var="entry">
+						<option value="${entry.vaccine}">${entry.vaccine}</option>
+					</c:forEach>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="newDose">New Doses Received:</label>
+				<input type="text" class="form-control" id="newDose" name="newDose">
+			</div>
+			<button type="submit" class="btn btn-primary">Add</button>
+		</form>
+	</div>
+</body>
+</html>

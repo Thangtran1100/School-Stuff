@@ -1,0 +1,9 @@
+127.0.0.1 - - [12/Mar/2023:20:36:28 -0700] "GET / HTTP/1.1" 404 751
+0:0:0:0:0:0:0:1 - - [12/Mar/2023:20:40:38 -0700] "GET /lab6/AdditionPractice HTTP/1.1" 404 776
+0:0:0:0:0:0:0:1 - - [12/Mar/2023:20:41:00 -0700] "GET /lab6/AdditionPractice HTTP/1.1" 404 776
+0:0:0:0:0:0:0:1 - - [12/Mar/2023:20:41:00 -0700] "GET /favicon.ico HTTP/1.1" 404 762
+0:0:0:0:0:0:0:1 - - [12/Mar/2023:20:41:10 -0700] "GET /homework1/ListVaccine HTTP/1.1" 200 596
+0:0:0:0:0:0:0:1 - - [12/Mar/2023:20:41:14 -0700] "GET /homework1/EditVaccine?id=2 HTTP/1.1" 200 585
+0:0:0:0:0:0:0:1 - - [12/Mar/2023:20:41:22 -0700] "GET /homework1/EditVaccine?id=1 HTTP/1.1" 200 583
+0:0:0:0:0:0:0:1 - - [12/Mar/2023:20:41:25 -0700] "GET /homework1/NewDose HTTP/1.1" 200 530
+0:0:0:0:0:0:0:1 - - [12/Mar/2023:20:41:29 -0700] "GET /homework1/NewVaccine HTTP/1.1" 200 576

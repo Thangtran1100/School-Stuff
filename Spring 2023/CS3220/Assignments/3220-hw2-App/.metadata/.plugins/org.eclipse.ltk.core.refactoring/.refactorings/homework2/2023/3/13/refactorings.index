@@ -1,0 +1,7 @@
+1680210382067	Rename resource 'PatientBook'
+1680242618288	Rename resource 'PatientBook.java'
+1680242806532	Rename resource 'Book.java'
+1680278607684	Delete element
+1680283024648	Encapsulate field 'vaccineTypeName'
+1680286229839	Encapsulate field 'uuid'
+1680296215745	Encapsulate field 'vaccines'

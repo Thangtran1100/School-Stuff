@@ -1,0 +1,62 @@
+package Helpdesk.servlet;
+
+import java.io.IOException;
+import java.util.List;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import model.HelpdeskEntry;
+import utilities.RequestServletUtilities;
+
+/**
+ * Servlet implementation class Update
+ */
+@WebServlet("/Update")
+public class CreatedUpdate extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public CreatedUpdate() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+List<HelpdeskEntry> entries = RequestServletUtilities.getHelpdeskEntresFromServletContext(getServletContext());
+		
+		int requestId = Integer.parseInt(request.getParameter("requestId"));
+
+		HelpdeskEntry selectedHelpdeskEntry = null;
+		
+		for(HelpdeskEntry entry : entries)
+		{
+			if(entry.getRequestId() == requestId)
+			{
+				selectedHelpdeskEntry = entry;
+				break;
+			}
+		}
+	
+		request.setAttribute("selectedHelpdeskEntry", selectedHelpdeskEntry);
+		request.getRequestDispatcher("CreatedUpdate.jsp").forward(request, response);
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+
+}

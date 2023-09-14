@@ -1,0 +1,75 @@
+package model;
+
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Management {
+    private List<PatientEntry> patients;
+    private List<VaccineEntry> vaccines;
+    
+    public Management() {
+        this.patients = new ArrayList<>();
+        this.vaccines = new ArrayList<>();
+    }
+    
+    public void addVaccine(VaccineEntry vaccine) {
+        vaccines.add(vaccine);
+    }
+    
+    public void removePatient(String patientId) {
+        PatientEntry patientToRemove = null;
+        for (PatientEntry patient : patients) {
+            if (patient.getUuid() == patientId) {
+                patientToRemove = patient;
+                break;
+            }
+        }
+        if (patientToRemove != null) {
+            patients.remove(patientToRemove);
+            vaccines.remove(patientToRemove);
+        }
+    }
+    
+    public void removeVaccine(int id) {
+        VaccineEntry vaccineToRemove = null;
+        for (VaccineEntry vaccine : vaccines) {
+            if (vaccine.getVaccineId() == id) {
+                vaccineToRemove = vaccine;
+                break;
+            }
+        }
+        if (vaccineToRemove != null) {
+            vaccines.remove(vaccineToRemove);
+        }
+    }
+    
+    public List<PatientEntry> getPatients() {
+        return patients;
+    }
+    
+    public List<VaccineEntry> getVaccines() {
+        return vaccines;
+    }
+    
+    public List<VaccineEntry> getAvailableVaccines() {
+        List<VaccineEntry> availableVaccines = new ArrayList<>();
+        for (VaccineEntry vaccine : vaccines) {
+            if (vaccine.getTotalDoseLeft() > 0) {
+                availableVaccines.add(vaccine);
+            }
+        }
+        return availableVaccines;
+    }
+    
+    public VaccineEntry findVaccineTypeByName(String vaccineName) {
+        for (VaccineEntry vaccine : this.vaccines) {
+            if (vaccine.getVaccineName().equals(vaccineName)) {
+                return vaccine;
+            }
+        }
+        return null;
+    }
+}

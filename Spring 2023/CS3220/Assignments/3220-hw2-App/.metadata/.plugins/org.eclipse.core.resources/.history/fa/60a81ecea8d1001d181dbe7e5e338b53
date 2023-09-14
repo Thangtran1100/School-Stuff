@@ -1,0 +1,98 @@
+package model;
+
+
+public class VaccineEntry {
+
+    static int idSeed = 1;
+
+    private int vaccineId;
+
+    private String vaccineName;
+    private String doseRequired;
+    private String daysBetweenDose;
+    
+    private int totalDoseReceived;
+    
+    private int totalDoseLeft;
+
+    public VaccineEntry( String vaccineName, String doseRequired, String daysBetweenDose, int totalDoseReceived, int totalDoseLeft)
+    {
+        this.vaccineId = idSeed++;
+        this.vaccineName = vaccineName;
+        this.doseRequired = doseRequired;
+        this.daysBetweenDose = daysBetweenDose;
+        this.totalDoseReceived = totalDoseReceived;
+        this.totalDoseLeft = totalDoseLeft;
+    }
+
+
+	public int getVaccineId()
+    {
+        return vaccineId;
+    }
+
+    public void setVaccineId( int vaccineId )
+    {
+        this.vaccineId = vaccineId;
+    }
+
+
+
+	public String getVaccineName() {
+		return vaccineName;
+	}
+
+
+	public void setVaccineName(String vaccineName) {
+		this.vaccineName = vaccineName;
+	}
+
+
+	public String getDoseRequired() {
+		return doseRequired;
+	}
+
+
+	public void setDoseRequired(String doseRequired) {
+		this.doseRequired = doseRequired;
+	}
+
+
+	public String getDaysBetweenDose() {
+		return daysBetweenDose;
+	}
+
+
+	public void setDaysBetweenDose(String daysBetweenDose) {
+		this.daysBetweenDose = daysBetweenDose;
+	}
+
+
+	public int getTotalDoseReceived() {
+		return totalDoseReceived;
+	}
+
+	public void setTotalDoseReceived(int totalDoseReceived) {
+		this.totalDoseReceived = totalDoseReceived;
+	}
+
+	public int getTotalDoseLeft() {
+		return totalDoseLeft;
+	}
+
+	public void setTotalDoseLeft(int totalDoseLeft) {
+		this.totalDoseLeft = totalDoseLeft;
+	}
+	
+	public void decrementDose() {
+		int doseRemain = getTotalDoseLeft();
+	    if (doseRemain > 0) {
+	        doseRemain--;
+	    }
+	    
+	    setTotalDoseLeft(doseRemain);
+	}
+
+
+}
+

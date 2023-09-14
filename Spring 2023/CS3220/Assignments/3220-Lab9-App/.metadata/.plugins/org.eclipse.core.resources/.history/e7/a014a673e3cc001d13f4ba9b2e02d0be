@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>List Vaccine</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+
+	<div class="container">
+	<a href="new-vaccine" class="btn btn-primary">New Vaccine</a> <a
+			href="new-doses" class="btn btn-primary">New Doses</a>
+		<h1>Vaccine List</h1>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Vaccine</th>
+					<th>Doses Required</th>
+					<th>Days Between Doses</th>
+					<th>Total Doses Received</th>
+					<th>Total Doses Left</th>
+					<th>Edit</th>
+				</tr>
+			</thead>
+			<tbody>
+				<c:forEach var="entry" items="${entries}">
+					<tr>
+						<td>${entry.name}</td>
+						<td>${entry.dosesRequired}</td>
+						<td>${entry.daysBetweenDoses}</td>
+						<td>${entry.totalDosesReceived}</td>
+						<td>${entry.totalDosesLeft}</td>
+						<td><a href="edit?vaccine=${entry.name}">Edit</a></td>
+					</tr>
+				</c:forEach>
+			</tbody>
+		</table>
+		
+	</div>
+
+</body>
+</html>

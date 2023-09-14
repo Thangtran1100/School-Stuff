@@ -1,0 +1,89 @@
+package homework2.servlet;
+
+import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import model.PatientEntry;
+import model.VaccineEntry;
+import model.VaccineType;
+import utilities.ServletUtilities;
+
+/**
+ * Servlet implementation class ListPatient
+ */
+@WebServlet("/ListPatient")
+public class ListPatient extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	
+       
+
+	/**
+     * @see HttpServlet#HttpServlet()
+     */
+    public ListPatient() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+
+        request.getRequestDispatcher("ListPatient.jsp").forward(request, response);
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		String patientIdCheck = request.getParameter("patientId");
+
+	    int patientId;
+
+	    try {
+	        patientId = Integer.parseInt(patientIdCheck.trim());
+	    } catch (NumberFormatException e) {
+	        // handle the case where the input string is not a valid integer
+	        patientId = -1;
+	    }
+
+	 // Get the patient entries and vaccine entries from the application context
+	    List<PatientEntry> patientEntries = (List<PatientEntry>) getServletContext().getAttribute("patientEntries");
+	    List<VaccineEntry> vaccineEntries = (List<VaccineEntry>) getServletContext().getAttribute("entries");
+
+	    // Decrement the stock of the vaccine by 1 if vaccineEntries is not null
+	    if (vaccineEntries != null) {
+	        for (VaccineEntry vaccineEntry : vaccineEntries) {
+	            if (vaccineEntry.getVaccineName().equals(patientEntries.get(patientId).getVaccineName())) {
+	                vaccineEntry.decrementDose();
+	                break;
+	            }
+	        }
+	    }
+
+	    // Set the date of the second dose for the patient to the current date
+	    DateTimeFormatter formatDate = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+	    if (patientId >= 0 && patientId < patientEntries.size()) {
+	        patientEntries.get(patientId).setSecondDoseDate(formatDate.format(LocalDate.now()));
+	    }
+	    
+	    
+	 // Redirect the user back to the patient listing page
+	    response.sendRedirect(request.getContextPath() + "/ListPatient");
+	}
+
+}

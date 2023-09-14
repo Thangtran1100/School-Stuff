@@ -1,0 +1,108 @@
+package model;
+
+import java.util.List;
+
+public class VaccineEntry {
+
+    static int idSeed = 1;
+
+    private int id;
+
+    private VaccineType vaccine;
+    
+    private String totalDoseReceived;
+    
+    private String totalDoseLeft;
+    
+    private String vaccineName;
+
+    public VaccineEntry( VaccineType vaccine, String totalDoseReceived, String totalDoseLeft)
+    {
+        this.id = idSeed++;
+        this.vaccine = vaccine;
+        this.totalDoseReceived = totalDoseReceived;
+        this.totalDoseLeft = totalDoseLeft;
+        
+        setVaccineName(vaccine.getVaccineName());
+    }
+    
+    public VaccineEntry()
+    {
+    	this.id = 0;
+    	
+    	this.vaccine = null;
+        this.totalDoseReceived = null;
+        this.totalDoseLeft = null;
+    }
+
+	public int getId()
+    {
+        return id;
+    }
+
+    public void setId( int id )
+    {
+        this.id = id;
+    }
+
+	public VaccineType getVaccine() {
+		return vaccine;
+	}
+
+
+	public void setVaccine(VaccineType vaccine) {
+		this.vaccine = vaccine;
+	}
+
+
+	public int getTotalDoseReceived() {
+		return Integer.parseInt(totalDoseReceived);
+	}
+
+	public void setTotalDoseReceived(String totalDoseReceived) {
+		this.totalDoseReceived = totalDoseReceived;
+	}
+
+	public int getTotalDoseLeft() {
+		if (totalDoseLeft == null) {
+	        return -1;
+	    }
+		return Integer.parseInt(totalDoseLeft);
+	}
+
+	public void setTotalDoseLeft(String totalDoseLeft) {
+		this.totalDoseLeft = totalDoseLeft;
+	}
+	
+	public void decrementDose() {
+		int doseRemain = getTotalDoseLeft();
+	    if (doseRemain > 0) {
+	        doseRemain--;
+	    }
+	    
+	    setTotalDoseLeft(String.valueOf(doseRemain));
+	}
+
+	public String getVaccineName() {
+		return vaccineName;
+	}
+
+	public void setVaccineName(String vaccineName) {
+		this.vaccineName = vaccineName;
+	}
+
+	public boolean checkVaccine()
+	{
+		Management check = new Management();
+		
+		vaccine = check.findVaccineTypeByName(this.vaccine.getVaccineName());
+		
+		if(vaccine.equals(null))
+		{
+			return false;
+		}
+		
+		return true;
+	}
+}
+

@@ -1,0 +1,84 @@
+package homework2.servlet;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import model.PatientEntry;
+import model.VaccineEntry;
+import model.VaccineType;
+import utilities.ServletUtilities;
+
+/**
+ * Servlet implementation class ListPatient
+ */
+@WebServlet("/ListPatient")
+public class ListPatient extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	
+	private List<PatientEntry> patientEntries;
+		
+	public void init( ServletConfig config ) throws ServletException
+    {
+        super.init( config );
+
+        patientEntries = new ArrayList<PatientEntry>();
+        
+	    patientEntries.add( new PatientEntry("John Doe", new VaccineType("Pfizer/BioNTech","",""), "02/18/2021", "03/11/2021"));
+	    patientEntries.add( new PatientEntry( "Jane Doe", new VaccineType("Pfizer/BioNTech","",""), "02/18/2021", null));
+	    patientEntries.add( new PatientEntry( "Tom Smith", new VaccineType("Johnson & Johnson","",""), "03/12/2021", null));
+	    patientEntries.add( new PatientEntry( "Jim Lee", new VaccineType("Moderna","",""), "03/12/2021", null));
+        
+        for(int i = 0; i < patientEntries.size(); i++)
+        {
+        	if(patientEntries.get(i).getFirstDoseDate() != null && patientEntries.get(i).getSecondDoseDate() != null)
+        	{
+        		patientEntries.get(i).decrementDose();
+        		patientEntries.get(i).decrementDose();
+        	}
+        	else
+        	{
+        		patientEntries.get(i).decrementDose();
+        	}
+        }
+        
+        getServletContext().setAttribute( "patientEntries", patientEntries );
+    }
+       
+
+	/**
+     * @see HttpServlet#HttpServlet()
+     */
+    public ListPatient() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+
+
+		request.setAttribute("patientEntries", patientEntries);
+        request.getRequestDispatcher("ListPatient.jsp").forward(request, response);
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+
+}

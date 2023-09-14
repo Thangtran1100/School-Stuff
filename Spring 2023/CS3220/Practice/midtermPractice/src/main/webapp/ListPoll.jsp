@@ -1,0 +1,37 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>List of Polls</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+
+
+
+	<div class="container">
+
+
+		<a href="CreatePoll" class="btn btn-primary">Create Poll</a> <br>
+		<br>
+
+		<table class="table table-bordered">
+			
+
+			<tbody>
+				<c:forEach var="poll" items="${polls}">
+					<tr>
+						<td><a href="DisplayPoll?question=${poll.question}">
+								${poll.question} </a></td>
+						<td><a href="AddAnswer?questionId=${poll.getId()}">Add Answers</a></td>
+					</tr>
+				</c:forEach>
+			</tbody>
+		</table>
+
+	</div>
+</body>
+</html>

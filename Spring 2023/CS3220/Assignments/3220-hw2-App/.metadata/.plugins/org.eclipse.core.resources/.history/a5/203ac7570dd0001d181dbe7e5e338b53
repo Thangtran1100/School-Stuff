@@ -1,0 +1,71 @@
+package model;
+
+
+public class VaccineEntry {
+
+    static int idSeed = 1;
+
+    private int id;
+
+    private VaccineType vaccine;
+    
+    private String totalDoseReceived;
+    
+    private String totalDoseLeft;
+
+    public VaccineEntry( VaccineType vaccine, String totalDoseReceived, String totalDoseLeft)
+    {
+        this.id = idSeed++;
+        this.vaccine = vaccine;
+        this.totalDoseReceived = totalDoseReceived;
+        this.totalDoseLeft = totalDoseLeft;
+    }
+
+	public int getId()
+    {
+        return id;
+    }
+
+    public void setId( int id )
+    {
+        this.id = id;
+    }
+
+	public VaccineType getVaccine() {
+		return vaccine;
+	}
+
+
+	public void setVaccine(VaccineType vaccine) {
+		this.vaccine = vaccine;
+	}
+
+
+	public int getTotalDoseReceived() {
+		return Integer.parseInt(totalDoseReceived);
+	}
+
+	public void setTotalDoseReceived(String totalDoseReceived) {
+		this.totalDoseReceived = totalDoseReceived;
+	}
+
+	public int getTotalDoseLeft() {
+		return Integer.parseInt(totalDoseLeft);
+	}
+
+	public void setTotalDoseLeft(String totalDoseLeft) {
+		this.totalDoseLeft = totalDoseLeft;
+	}
+	
+	public int decrementDose() {
+		int doseRemain = Integer.parseInt(this.totalDoseLeft);
+	    if (doseRemain > 0) {
+	        doseRemain--;
+	    }
+	    
+	    setTotalDoseLeft(String.valueOf(doseRemain));
+	    
+	    return doseRemain;
+	}
+}
+

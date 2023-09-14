@@ -1,0 +1,46 @@
+package model;
+
+public class VaccineType {
+    private String vaccineName;
+    private String doseRequired;
+    private String daysBetweenDose;
+
+    public VaccineType(String vaccineName, String doseRequired, String daysBetweenDose) {
+        this.vaccineName = vaccineName;
+        this.doseRequired = doseRequired;
+        this.daysBetweenDose = daysBetweenDose;
+    }
+
+    public String getVaccineName() {
+        return vaccineName;
+    }
+
+    public void setVaccineName(String vaccineName) {
+        this.vaccineName = vaccineName;
+    }
+
+    public String getDoseRequired() {
+        return doseRequired;
+    }
+
+    public void setDoseRequired(String doseRequired) {
+        this.doseRequired = doseRequired;
+    }
+
+    public String getDaysBetweenDose() {
+        return daysBetweenDose;
+    }
+
+    public void setDaysBetweenDose(String daysBetweenDose) {
+        this.daysBetweenDose = daysBetweenDose;
+    }
+    
+    public boolean isOneDose() {
+        return doseRequired.equals("1");
+    }
+	
+	public boolean isTwoDoses() {
+        return doseRequired.equals("2");
+    }
+	
+}

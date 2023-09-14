@@ -1,0 +1,4 @@
+INDEX VERSION 1.131+D:\Cal State LA\School Stuff\Spring 2023\CS3220\Practice\.metadata\.plugins\org.eclipse.jdt.core
+1865797976.index
+1809227105.index
+1755401707.index

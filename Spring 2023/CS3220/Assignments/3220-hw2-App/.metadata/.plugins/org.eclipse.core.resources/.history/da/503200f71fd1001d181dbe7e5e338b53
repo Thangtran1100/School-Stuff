@@ -1,0 +1,53 @@
+package model;
+
+import java.util.UUID;
+
+public class VaccineType {
+    private String vaccineName;
+    private String doseRequired;
+    private String daysBetweenDose;
+    private String vaccineId;
+
+    public VaccineType(String vaccineName, String doseRequired, String daysBetweenDose) {
+        this.vaccineName = vaccineName;
+        this.doseRequired = doseRequired;
+        this.daysBetweenDose = daysBetweenDose;
+        
+        setVaccineId(UUID.randomUUID().toString());
+    }
+
+    public String getVaccineName() {
+        return vaccineName;
+    }
+
+    public void setVaccineName(String vaccineName) {
+        this.vaccineName = vaccineName;
+    }
+
+    public int getDoseRequired() {
+        return Integer.parseInt(doseRequired);
+    }
+
+    public void setDoseRequired(String doseRequired) {
+        this.doseRequired = doseRequired;
+    }
+
+    public String getDaysBetweenDose() {
+        return daysBetweenDose;
+    }
+
+    public void setDaysBetweenDose(String daysBetweenDose) {
+        this.daysBetweenDose = daysBetweenDose;
+    }
+
+	public String getVaccineId() {
+		return vaccineId;
+	}
+
+	public void setVaccineId(String vaccineId) {
+		this.vaccineId = vaccineId;
+	}
+    
+    
+	
+}

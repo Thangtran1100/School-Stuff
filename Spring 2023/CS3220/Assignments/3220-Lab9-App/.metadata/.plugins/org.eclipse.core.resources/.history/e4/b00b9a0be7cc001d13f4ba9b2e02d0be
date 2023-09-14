@@ -1,0 +1,27 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Edit Vaccine</title>
+</head>
+<body>
+    <h1>Edit Vaccine</h1>
+    <form action="EditVaccine" method="post">
+        <label for="name">Name:</label>
+        <input type="text" name="name" value="${vaccineEntry.vaccine}"><br><br>
+        
+        <label for="dose">Doses Required:</label>
+        <select name="dose">
+            <option value="1" ${vaccineEntry.doseRequired == "1" ? "selected" : ""}>1</option>
+            <option value="2" ${vaccineEntry.doseRequired == "2" ? "selected" : ""}>2</option>
+        </select><br><br>
+        
+        <label for="days">Days Between Doses:</label>
+        <input type="text" name="days" value="${vaccineEntry.daysBetweenDose}"><br><br>
+        
+        <input type="submit" value="Save">
+    </form>
+</body>
+</html>
